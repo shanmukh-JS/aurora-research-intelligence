@@ -52,11 +52,8 @@ Original file is located at
 # This avoids the dependency warning seen previously.
 # ================================================================
 
-# %pip install -q \
-    "google-auth==2.49.0" \
-    "PyMuPDF" \
-    "google-genai" \
-    "gradio"
+
+# Dependencies are installed by Hugging Face from requirements.txt.
 
 
 # ================================================================
@@ -75,7 +72,7 @@ import pymupdf
 import gradio as gr
 
 from google import genai
-from google.colab import userdata
+
 
 
 # ================================================================
@@ -93,10 +90,19 @@ APP_VERSION = "1.0.0"
 # Gemini model used by AURORA.
 GEMINI_MODEL = "gemini-3.8-flash"
 
-# EXACT name of the Google Colab Secret.
-GEMINI_SECRET_NAME = "jamini"
+# Hugging Face Space Secret
+GEMINI_SECRET_NAME = "GEMINI_API_KEY"
 
+# Load Gemini API key from Hugging Face Space Secret
+GEMINI_API_KEY = os.getenv(GEMINI_SECRET_NAME)
 
+if not GEMINI_API_KEY:
+    raise RuntimeError(
+        "AURORA could not find GEMINI_API_KEY. "
+        "Add GEMINI_API_KEY as a Secret in Hugging Face Space Settings."
+    )
+
+GEMINI_API_KEY = GEMINI_API_KEY.strip()
 # ================================================================
 # 4. LOGGING CONFIGURATION
 # ================================================================
