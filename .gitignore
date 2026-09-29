@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# API keys and credentials
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# Research papers / uploaded PDFs
+*.pdf
+
+# Local data
+data/
+uploads/
+outputs/
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Gradio / local cache
+.gradio/
